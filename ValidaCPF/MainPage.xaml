@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ValidaCPF.MainPage"
+             Shell.NavBarIsVisible="False">
+
+    <VerticalStackLayout VerticalOptions="Center">
+      <Label Text="Digite seu CPF:"/>
+      <Entry x:Name="entryCpf"/>
+      <Button Text="Enviar" Clicked="ConfirmButton"/>
+
+      <Label Text="Seu CPF é: 000.000.000-00"
+            x:Name="labelCpf"/>
+
+      <Label Text="valor da multiplicação:"
+               x:Name="labelMult"/>
+
+      <Label Text="Penúltimo dígito:"
+               x:Name="labelPenultimo"/>
+      
+      <Label Text="Último dígito:"
+               x:Name="labelUltimo"/>
+    </VerticalStackLayout>
+
+</ContentPage>
