@@ -1,26 +1,178 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="ValidaCPF.MainPage"
-             Shell.NavBarIsVisible="False">
+<ContentPage
+    x:Class="ValidaCPF.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="#F2F4F7"
+    Shell.NavBarIsVisible="False">
 
-    <VerticalStackLayout VerticalOptions="Center">
-      <Label Text="Digite seu CPF:"/>
-      <Entry Keyboard="Numeric" 
-            x:Name="entryCpf"/>
-      <Button Text="Enviar" Clicked="ConfirmButton"/>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="24"
+            Spacing="0"
+            VerticalOptions="Center">
 
-      <Label Text="Seu CPF é: 000.000.000-00"
-             x:Name="labelCpf"/>
+            <!--  Cabeçalho  -->
+            <Label
+                Margin="0,0,0,4"
+                FontAttributes="Bold"
+                FontSize="28"
+                HorizontalOptions="Center"
+                Text="Validador de CPF"
+                TextColor="#1F2937" />
 
-      <Label Text="valor da multiplicação:"
-             x:Name="labelMult"/>
+            <Label
+                Margin="0,0,0,24"
+                FontSize="14"
+                HorizontalOptions="Center"
+                Text="Verifique se um CPF é válido"
+                TextColor="#6B7280" />
 
-      <Label Text="Penúltimo dígito:"
-             x:Name="labelPenultimo"/>
-      
-      <Label Text="Último dígito:"
-             x:Name="labelUltimo"/>
-    </VerticalStackLayout>
+            <!--  Cartão de entrada  -->
+            <Frame
+                Padding="20"
+                BackgroundColor="White"
+                BorderColor="#E5E7EB"
+                CornerRadius="20"
+                HasShadow="True">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="Digite seu CPF"
+                        TextColor="#374151" />
+
+                    <Entry
+                        x:Name="entryCpf"
+                        BackgroundColor="#F9FAFB"
+                        FontSize="18"
+                        Keyboard="Numeric"
+                        MaxLength="14"
+                        Placeholder="000.000.000-00"
+                        PlaceholderColor="#9CA3AF"
+                        TextColor="#111827">
+                        <Entry.Behaviors>
+                            <toolkit:MaskedBehavior Mask="XXX.XXX.XXX-XX" />
+                        </Entry.Behaviors>
+                    </Entry>
+
+                    <BoxView
+                        Margin="0,4"
+                        HeightRequest="1"
+                        Color="#E5E7EB" />
+
+                    <Button
+                        BackgroundColor="#2563EB"
+                        Clicked="ConfirmButton"
+                        CornerRadius="12"
+                        FontAttributes="Bold"
+                        HeightRequest="48"
+                        Text="Validar CPF"
+                        TextColor="White" />
+
+                    <Button
+                        x:Name="btnLimpar"
+                        BackgroundColor="Transparent"
+                        Clicked="clearButton"
+                        FontAttributes="Bold"
+                        HeightRequest="40"
+                        Text="Limpar"
+                        TextColor="#6B7280" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!--  Cartão de resultado  -->
+            <Frame
+                x:Name="frameResultado"
+                Margin="0,16,0,0"
+                Padding="20"
+                BackgroundColor="White"
+                BorderColor="#E5E7EB"
+                CornerRadius="20"
+                HasShadow="True"
+                IsVisible="False">
+
+                <VerticalStackLayout Spacing="14">
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Label
+                            x:Name="iconResultado"
+                            FontSize="24"
+                            IsVisible="False"
+                            Text="" />
+                        <Label
+                            x:Name="labelResultado"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Text="Resultado"
+                            TextColor="#374151"
+                            VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <Label
+                        x:Name="labelCpf"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        TextColor="#111827" />
+
+                    <Grid
+                        ColumnDefinitions="*,Auto"
+                        ColumnSpacing="8"
+                        RowDefinitions="Auto,Auto"
+                        RowSpacing="6">
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontSize="12"
+                            Text="Penúltimo dígito"
+                            TextColor="#6B7280" />
+                        <Label
+                            x:Name="labelPenultimo"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Text="-"
+                            TextColor="#111827" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontSize="12"
+                            Text="Último dígito"
+                            TextColor="#6B7280" />
+                        <Label
+                            x:Name="labelUltimo"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Text="-"
+                            TextColor="#111827" />
+
+                    </Grid>
+
+                    <Label
+                        x:Name="labelMult"
+                        FontSize="11"
+                        Text="valor da multiplicação:"
+                        TextColor="#9CA3AF" />
+
+                    <Label
+                        x:Name="labelRegiao"
+                        FontSize="12"
+                        IsVisible="False"
+                        Text="Região fiscal: "
+                        TextColor="#6B7280" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
