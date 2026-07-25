@@ -1,6 +1,6 @@
 # ValidaCPF
 
-App feito em **.NET MAUI** pra validar CPF. Fiz esse projeto pra treinar lógica, manipulação de string/array em C# e um pouco de XAML — nada muito sério, mas ficou funcional e com uma interface decente.
+App feito em **.NET MAUI** pra validar CPF. Talvez não esteja estruturado da melhor forma, mas fiz esse projeto pra treinar lógica, manipulação de string/array em C# e um pouco de XAML — nada muito sério, mas ficou funcional e com uma interface decente.
 
 ## O que ele faz
 
